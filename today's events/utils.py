@@ -11,8 +11,8 @@ class date(object):
         r=requests.get(''.join(ur1))
         evs=json.loads(r.text)
         max=int(evs['result'][-1]["e_id"])-int(evs['result'][0]["e_id"])
-        n=random.randint(1,max)
-        return evs['result'][n]['title']
+        x=[evs['result'][i]['title'] for i in range(1,max)]
+        return "\n".join(x)
 
 
     
