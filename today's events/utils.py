@@ -3,6 +3,8 @@ import json
 import random
 from datetime import date
 
+   
+
 class Date(object):
     def __init__(self,mon,day) :
         self.mon=mon
@@ -22,7 +24,7 @@ class Date(object):
         r=requests.get(''.join(ur1))
         evs=json.loads(r.text)
         max=int(evs['result'][-1]["e_id"])-int(evs['result'][0]["e_id"])
-        x=[evs['result'][i]['date']+"\t"+evs['result'][i]['title'] for i in range(1,max)]
+        x=[''.join(['<a href=','\'','http://www.baidu.com/s?wd=',evs['result'][i]['title'],'\'','>', evs['result'][i]['date']+'\t'+evs['result'][i]['title'],'</a>','<br>']) for i in range(1,max)]
         return "\n".join(x)
 
 

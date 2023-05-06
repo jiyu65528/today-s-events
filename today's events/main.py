@@ -25,5 +25,4 @@ if __name__ == '__main__':
     MainWindow.show()
     ui.pushButton.clicked.connect(partial(search, ui))
     
-    
     sys.exit(app.exec_())
